@@ -24,4 +24,9 @@ class AlternativeSuite extends CatsSuite {
     assert(Alternative[Option].guard(true).isDefined)
     assert(Alternative[Option].guard(false).isEmpty)
   }
+
+  test("guarded") {
+    assert(Alternative[Option].guarded(2)(_ > 1).isDefined)
+    assert(Alternative[Option].guarded(0)(_ > 1).isEmpty)
+  }
 }
